@@ -1,4 +1,4 @@
-streamlit
+streamlit==1.31.1
 opencv-python-headless   # headless better for servers; use opencv-python if you need GUI features locally
 numpy
 pandas
