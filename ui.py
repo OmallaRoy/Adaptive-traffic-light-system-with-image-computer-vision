@@ -1,6 +1,4 @@
-# ==========================================
-# app.py — Streamlit UI for Traffic System
-# ==========================================
+
 import streamlit as st
 import pickle
 import cv2
@@ -76,7 +74,7 @@ if uploaded_file is not None:
             break
 
     if result is None:
-        st.warning("⚠️ No detection results found for this image. Upload one from your batch results.")
+        st.warning("No detection results found for this image. Upload one from your batch results.")
     else:
         display_img = result["display_img"]
         if isinstance(display_img, np.ndarray):
@@ -85,16 +83,17 @@ if uploaded_file is not None:
         lane_counts_list = result["vehicle_breakdown"]
         adaptive_green_times = result["adaptive_green_times"]
 
-        # ------------------------------
+        
         # Display detection result
-        # ------------------------------
-        st.markdown("### 🧠 Vehicle Detection Results")
-        st.image(display_img, caption="Detected Vehicles", use_container_width=True)
+       
+        st.markdown("###  Vehicle Detection Results")
+       
+        st.image(display_img, caption="Detected Vehicles", use_column_width=True)
 
-        # ------------------------------
+       
         # Lane-wise analysis
-        # ------------------------------
-        st.markdown("### 🛣️ Lane Status & Signal Control")
+      
+        st.markdown("###  Lane Status & Signal Control")
         cols = st.columns(2)
 
         for i, (lane_name, points) in enumerate(lane_polygons.items()):
@@ -118,9 +117,9 @@ if uploaded_file is not None:
                 else:
                     color_code = "#00D474"
 
-                # ------------------------------
+                
                 # Lane card UI
-                # ------------------------------
+                
                 st.markdown(
                     f"""
                     <div style="
@@ -149,7 +148,8 @@ if uploaded_file is not None:
                     unsafe_allow_html=True
                 )
 
-                st.image(lane_img_pil, use_container_width=True)
+              
+                st.image(lane_img_pil, use_column_width=True)
 
                 # Vehicle details
                 st.markdown(
@@ -206,11 +206,11 @@ if uploaded_file is not None:
                     unsafe_allow_html=True
                 )
 
-        # ------------------------------
+        
         # Overall summary
-        # ------------------------------
+        
         st.markdown("---")
-        st.markdown("### 📈 Traffic Forecast Overview")
+        st.markdown("###  Traffic Forecast Overview")
 
         cols_summary = st.columns(2)
         with cols_summary[0]:

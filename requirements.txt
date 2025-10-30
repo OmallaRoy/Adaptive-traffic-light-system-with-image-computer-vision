@@ -1,9 +1,9 @@
 streamlit==1.31.1
-opencv-python-headless   # headless better for servers; use opencv-python if you need GUI features locally
+opencv-python-headless   
 numpy
 pandas
 Pillow
 scikit-image
-ultralytics              # only if you intend to run detection locally
-diffusers               # optional, if generating synthetic images locally
-torch                   # required by diffusers/ultralytics (install matching CUDA)
+ultralytics              
+diffusers               
+torch                   
