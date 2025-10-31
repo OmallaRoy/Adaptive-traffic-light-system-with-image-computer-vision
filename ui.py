@@ -214,7 +214,7 @@ if uploaded_file is not None:
 
         cols_summary = st.columns(2)
         with cols_summary[0]:
-            st.markdown("**Vehicle Forecast (Next 40 min)**")
+            st.markdown("**Vehicle Forecast (Next 10 min)**")
             forecast_df = generate_traffic_forecast()
             st.bar_chart(forecast_df.set_index('Time'))
 
